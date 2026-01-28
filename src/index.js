@@ -2,7 +2,16 @@ function recentWeather(response) {
   // 1. Update the temperature
   let temperatureElement = document.querySelector(".current-temperature-value");
   let temperature = Math.round(response.data.temperature.current);
+  let descriptionElement=document.querySelector("#description");
+  let humidityElement=document.querySelector("#humidity");
+  let windSpeedElement= document.querySelector("#wind-speed");
+
+
+
   temperatureElement.innerHTML = temperature;
+  descriptionElement.innerHTML= response.data.condition.description;
+  humidityElement.innerHTML=`${response.data.temperature.humidity}%`;
+  windSpeedElement.innerHTML=`${response.data.wind.speed}km/h`;
 
   // 2. Update the city name to match what the API found (improves spelling)
   let cityElement = document.querySelector("#current-city");
