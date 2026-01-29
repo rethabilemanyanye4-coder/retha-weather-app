@@ -5,7 +5,7 @@ function recentWeather(response) {
   let descriptionElement=document.querySelector("#description");
   let humidityElement=document.querySelector("#humidity");
   let windSpeedElement= document.querySelector("#wind-speed");
-
+  
 
 
   temperatureElement.innerHTML = temperature;
