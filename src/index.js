@@ -7,7 +7,7 @@ function recentWeather(response) {
   let windSpeedElement= document.querySelector("#wind-speed");
   
 
-
+ 
   temperatureElement.innerHTML = temperature;
   descriptionElement.innerHTML= response.data.condition.description;
   humidityElement.innerHTML=`${response.data.temperature.humidity}%`;
@@ -58,6 +58,27 @@ function formatDate(date) {
   let formattedDay = days[dayIndex];
   return `${formattedDay} ${hours}:${minutes}`;
 }
+function displayforecast(){
+
+  let days=['Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  let forecastHtml="";
+  days.forEach(function(day){
+    forecastHtml=
+    forecastHtml +`
+  <div class="weather-forecast-day">
+            <div class="weather-forecast-date">${day}</div>
+            <div class="weather-forecast-icon">🌤️</div>
+            <div class="weather-forecast-temperature">
+              <strong>15°</strong>9°</div> 
+              </div>`
+            
+;
+}
+   );
+
+let forecastElement= document.querySelector("#forecast");
+forecastElement.innerHTML=forecastHtml;
+}
 
 // Event Listeners
 let searchForm = document.querySelector("#search-form");
@@ -70,3 +91,4 @@ currentDateElement.innerHTML = formatDate(currentDate);
 
 // Load Paris by default when the page starts
 searchCity("Paris");
+displayforecast();
