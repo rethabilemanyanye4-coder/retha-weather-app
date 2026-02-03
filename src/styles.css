@@ -100,7 +100,7 @@ footer {
 
 }
 .weather-forecast-icon{
-  font-size:38px;
+  width:100%;
   text-align:center ;
 }
 .weather-forecast-temperature{
