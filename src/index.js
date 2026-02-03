@@ -16,6 +16,9 @@ function recentWeather(response) {
   // 2. Update the city name to match what the API found (improves spelling)
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = response.data.city;
+
+  getForecast(response.data.city);
+
 }
 
 function searchCity(city) {
@@ -58,7 +61,13 @@ function formatDate(date) {
   let formattedDay = days[dayIndex];
   return `${formattedDay} ${hours}:${minutes}`;
 }
-function displayforecast(){
+
+function getForecast(city){
+  let apiKey="f471a068ffaaf7bot45233b482c5cd2d";
+  let apiUrl=`https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axiom(apiUrl).then(displayForecast);
+}
+function displayForecast(response){
 
   let days=['Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   let forecastHtml="";
@@ -91,4 +100,4 @@ currentDateElement.innerHTML = formatDate(currentDate);
 
 // Load Paris by default when the page starts
 searchCity("Paris");
-displayforecast();
+displayForecast();
